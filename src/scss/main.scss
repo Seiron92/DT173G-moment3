@@ -1,0 +1,12 @@
+/*does only one thing which is to import all the above files.*/
+
+/* IMPORTS */
+@import "_layout";
+@import "_component";
+@import "_base";
+
+
+
+h1 {
+    color:$test;
+}

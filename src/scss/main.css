@@ -1,0 +1,14 @@
+/*does only one thing which is to import all the above files.*/
+/* IMPORTS */
+/*handles the overall layout of the web page such as container and grid systems.*/
+/*is for components such as buttons, navbars, cards, anything that is reusable. 
+Since we have a small project our component file should be manageable.
+*/
+/*is where I have the resets, variables, mixins, and some utility CSS classes. 
+It may look like there is a lot to fit in a single file. However, 
+some of these subsets may only have less than 20 lines, 
+some subsets may not even have any code.*/
+h1 {
+  color: blue;
+}
+/*# sourceMappingURL=main.css.map */
