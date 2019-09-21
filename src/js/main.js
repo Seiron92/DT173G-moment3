@@ -7,18 +7,15 @@ $(window).scroll(function () {
         $("#menu").css("border-bottom", "5px solid #DCECF2");
         $("#circle").css("border-bottom", "7px solid #DCECF2");
         $("#circle").html('<a href="index.html"><img src="images/logo2.svg" alt="Logotyp"></a>')
-        $(".links >a").css("color", "#123859");
-        $(".links > i").css("color", "#123859");
-        $(".links > a > i").css("color", "#123859");
     } else {
         $("#circle").css("background-color", "transparent");
         $("#menu").css("background-color", "transparent");
         $("#menu").css("border-bottom", "none");
         $("#circle").css("border-bottom", "none");
         $("#circle").html('<a href="index.html"><img src="images/logo.svg" alt="Logotyp"></a>');
-        $(".links > a > i").css("color", "rgb(255, 255, 255)");
-        $(".links > a").css("color", "rgb(255, 255, 255)");
+    
     }
+   
 });
 /* HEADER SLIDER */
 var slideIndex = 0;
@@ -35,5 +32,13 @@ function showSlides() {
     if (slideIndex > slides.length) { slideIndex = 1 }
 
     slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 4000); // Change image every 2 seconds
+    setTimeout(showSlides, 4000);
 }
+
+/* HAMBURGER MENU */
+$(".menu-wrapper").on('click', function(event){
+    $(this).toggleClass("change");
+    $(this).closest(".fmenu").find('.menu').toggleClass("menuActive");
+   $(this).closest(".fmenu").find('.menu').show();
+})
+

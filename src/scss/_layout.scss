@@ -23,6 +23,21 @@ $colors: (
   font-dark: darken(#123859, 2%)
 );
 
+/* MEDIA QUERIES */
+$small: 1100px;
+$xsmall: 550px;
+
+@mixin small {
+  @media (max-width: #{$small}) {
+    @content;
+  }
+}
+@mixin xsmall {
+  @media (max-width: #{$xsmall}) {
+    @content;
+  }
+}
+
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }
@@ -30,14 +45,18 @@ $colors: (
 $paddingMenu: 20px;
 $paddingButton: 5px;
 
-html,
-body {
+html {
   height: 100%;
 }
-#container {
-  min-height: 100%;
+
+body {
   position: relative;
+  margin: 0;
+  min-height: 100%;  
+  padding: 0;
+
 }
+
 .head {
   background-image: image(mainbkg);
   background-size: cover;
@@ -49,15 +68,30 @@ body {
 
   img {
     width: 25%;
-    margin-left: 38vw;
+    margin-left: 37.5%;
     margin-top: 22vh;
     z-index: 2;
+    @include small {
+      width: 45%;
+      margin-left: 27.5%;
+    }
+    @include xsmall {
+      width: 85%;
+      margin-left: 7%;
+    }
   }
   .small img {
-    margin-left: 40vw;
-
+    margin-left: 40%;
     height: auto;
     width: 20%;
+    @include small {
+      width: 40%;
+      margin-left: 30%;
+    }
+    @include xsmall {
+      width: 80%;
+      margin-left: 10%;
+    }
   }
 }
 .lace {
@@ -84,6 +118,9 @@ body {
     position: relative;
     height: auto;
     float: none;
+    @include small {
+      width: 90%;
+  }
 
     img {
       width: 30%;
@@ -91,9 +128,20 @@ body {
       padding-right: $paddingMenu;
       border-radius: 50%;
       object-fit: cover;
+      @include xsmall {
+        width: 90%;
+margin-left: 5%;
+margin-top: 20px;
+margin-bottom: 30px;
+     display: block;
+    }
     }
     p {
       padding-top: 50px;
+      @include xsmall {
+      display: block;
+        padding-top: 90px;
+    }
     }
   }
   #second {
@@ -127,7 +175,9 @@ body {
       width: 65%;
       transition: ease-in-out 0.2s;
     }
-
+    @include xsmall {
+      width: 70%;
+  }
     @keyframes shake {
       10%,
       90% {
@@ -151,23 +201,25 @@ body {
       }
     }
   }
+  @include small {
+      width: 50%;
+  }
 }
 #three {
-  width: 100%;
-  background: color(links);
-  position: relative;
-
-  height: auto;
-  top: 10vh;
-  margin: 0 auto;
-  text-align: center;
-  padding-bottom: 10vh;
-  padding-top: $paddingMenu;
+ @extend #second;
+  background: color(links)!important;
 
   .news {
     width: 20%;
     display: inline-block;
     padding: 20px;
+
+    @include small {
+      width: 50%;
+  }
+  @include xsmall {
+width: 90%;
+  }
 
     img {
       width: 80%;
@@ -188,6 +240,7 @@ body {
       display: inline;
     }
   }
+
 }
 .footerContainer {
   width: 20%;
@@ -197,19 +250,24 @@ body {
     width: 55%;
     display: inline-block;
   }
+  @include small {
+    width: 50%;
+    margin-top: 40px;
+}
 }
 
 footer {
-  margin: 0 auto;
+  margin: 50px auto;
   text-align: center;
   background: color(accent);
   height: auto;
   padding-top: 50px;
   padding-bottom: 50px;
-
   position: relative;
-  margin-top: 90vh;
+ // margin-top: 90vh;
   width: 100%;
+  bottom: 0px;
+  margin-bottom: 0px;
 
   ul {
     li {
@@ -225,4 +283,16 @@ footer {
   display: inline-block;
   padding-left: $paddingMenu;
   padding-top: 5px;
+}
+
+footer i {
+  color: color(links);
+  font-family: $rs;
+  font-size: 1em;
+  &:hover {
+    @if (color(links) ==#ffffff) {
+      color: color(font);
+      transition: ease-in-out 0.2s;
+    }
+  }
 }
