@@ -91,7 +91,7 @@ return src(files.sassPath)
 function imgsPath() {
     return src(files.imgPath)
         .pipe(browserSync.stream())
-       // .pipe(imagemin())
+        .pipe(imagemin())
         .pipe(dest('pub/images')
         );
 }
