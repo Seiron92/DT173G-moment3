@@ -25,6 +25,10 @@ const watch = require('gulp-watch');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
 
+const concatCss = require('gulp-concat-css');
+const cleanCSS = require('gulp-clean-css');
+
+
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 const sourcemaps = require('gulp-sourcemaps');
@@ -34,7 +38,8 @@ const files = {
     htmlPath: "src/**/*.html",
     jsPath: "src/**/*.js",
     sassPath: "src/**/*.scss",
-    imgPath: "src/images"
+    cssPath:  "src/**/*.css",
+    imgPath: "src/images/**"
 };
 
 
@@ -59,19 +64,16 @@ function jsTask() {
 
         );
 }
+    // TASK : Move Css to pub, minify files 
 
-// TASK : Move Css to pub, minify files 
-/*
-
-function cssTask() {
-    return src(files.cssPath)
+    function cssTask(){
+        return src(files.cssPath)
         .pipe(browserSync.stream())
-        .pipe(concatCss("css/main.css"))
-        .pipe(cleanCSS({ compatibility: 'ie8' }))
+     .pipe(concatCss("css/main.css"))
+     .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(dest('pub')
-        );
-}
-*/
+       );
+        }
 
 // TASK : Compile SASS and compress
 function sassTask() {
@@ -89,8 +91,8 @@ return src(files.sassPath)
 function imgsPath() {
     return src(files.imgPath)
         .pipe(browserSync.stream())
-        .pipe(imagemin())
-        .pipe(dest('pub')
+       // .pipe(imagemin())
+        .pipe(dest('pub/images')
         );
 }
 
@@ -104,13 +106,13 @@ function watchTask() {
     });
 
     watch([files.htmlPath, files.jsPath, files.sassPath, files.imgPath],
-        parallel(copyHTML, jsTask, /*cssTask,*/sassTask, imgsPath),
+        parallel(copyHTML, jsTask, cssTask,sassTask, imgsPath),
 
     );
 }
 
 exports.default = series(
-    parallel(copyHTML, jsTask,/* cssTask,*/sassTask, imgsPath),
+    parallel(copyHTML, jsTask, cssTask, sassTask, imgsPath),
     watchTask
 
 );

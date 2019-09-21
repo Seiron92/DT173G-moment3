@@ -1,3 +1,184 @@
 /*is for components such as buttons, navbars, cards, anything that is reusable. 
 Since we have a small project our component file should be manageable.
 */
+
+/* COLORS */
+$colors: (
+  // DEKLARERA FLERA FÄRGER
+    links: rgb(255, 255, 255),
+  font: #54728c,
+  border: #dcecf2,
+  accent: #123859,
+  font-light: lighten(#123859, 40%),
+  font-dark: darken(#123859, 2%)
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+/* FONTS */
+$rs: "Roboto Slab", serif;
+$satisfy: "Satisfy", cursive;
+
+/* MIXINS */
+@mixin buttons {
+  background: color(font-light);
+  color: color(links);
+  font-size: 1em;
+  font-family: $rs;
+  outline: none;
+  border: none;
+  padding: $paddingButton;
+  border-radius: 15px;
+  padding-left: $paddingMenu;
+  padding-right: $paddingMenu;
+  cursor: pointer;
+
+  &:hover {
+    background: color(font-dark);
+    transition: ease-in-out 0.8s;
+  }
+}
+/* PADDINGS AND MARGINS */
+$paddingMenu: 20px;
+$paddingButton: 5px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1 {
+  font-family: $satisfy;
+  font-size: 2.8em;
+  text-align: center;
+  color: color(accent);
+}
+h2 {
+  color: color(accent);
+  font-family: $rs;
+  font-size: 2em;
+  text-align: center;
+}
+h3 {
+  color: color(font);
+  font-family: $satisfy;
+  font-size: 1.8em;
+  text-align: center;
+  // color: color(accent);
+}
+a {
+  cursor: pointer;
+
+  &:hover {
+    @if (color(links) == rgb(255, 255, 255)) {
+      color: color(accent);
+      transition: ease-in-out 0.8s;
+    } @else {
+      color: red;
+    }
+  }
+}
+p {
+  color: color(font);
+  font-family: $rs;
+  font-size: 1em;
+}
+i {
+  color: color(links);
+  font-family: $rs;
+  font-size: 1em;
+}
+.fab {
+  font-size: 1.5em;
+}
+nav {
+  z-index: 20;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  padding-top: $paddingMenu;
+  padding-bottom: $paddingMenu;
+}
+#social {
+  text-align: left;
+  position: relative;
+  li {
+    padding-left: $paddingMenu;
+  }
+}
+#mainmenu {
+  float: right;
+  text-align: right;
+  li {
+    padding-right: $paddingMenu;
+    font-weight: bold;
+    font-family: $rs;
+  }
+}
+#logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: -120px;
+  #circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 270px;
+  }
+  img {
+    vertical-align: middle;
+
+    height: 80px;
+  }
+}
+ul {
+  display: inline;
+  position: relative;
+  width: 33%;
+  li {
+    display: inline-block;
+    list-style-type: none;
+    a {
+      color: color(links);
+      font-family: $rs;
+      font-size: 1em;
+      text-decoration: none;
+    }
+    .links {
+      color: color(links);
+    }
+  }
+}
+button {
+  @include buttons();
+}
+
+/* Fading animation for header slideshow*/
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

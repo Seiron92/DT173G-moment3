@@ -1,3 +1,228 @@
 /*handles the overall layout of the web page such as container and grid systems.*/
 
-$test: blue;
+/* IMAGES */
+$images: (
+  mainbkg: url("../images/mainbkg2.png"),
+  lace: url("../images/lace.png"),
+  pink: url("../images/pinkbkg.png")
+);
+@function image($image-name) {
+  @return map-get($images, $image-name);
+}
+/* FONTS */
+$rs: "Roboto Slab", serif;
+$satisfy: "Satisfy", cursive;
+/* COLORS */
+$colors: (
+  // DEKLARERA FLERA FÄRGER
+    links: rgb(255, 255, 255),
+  font: #54728c,
+  border: #dcecf2,
+  accent: #123859,
+  font-light: lighten(#123859, 40%),
+  font-dark: darken(#123859, 2%)
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+/* paddings */
+$paddingMenu: 20px;
+$paddingButton: 5px;
+
+html,
+body {
+  height: 100%;
+}
+#container {
+  min-height: 100%;
+  position: relative;
+}
+.head {
+  background-image: image(mainbkg);
+  background-size: cover;
+  width: 100%;
+  height: 95vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  img {
+    width: 25%;
+    margin-left: 38vw;
+    margin-top: 22vh;
+    z-index: 2;
+  }
+  .small img {
+    margin-left: 40vw;
+
+    height: auto;
+    width: 20%;
+  }
+}
+.lace {
+  background-image: image(lace);
+  background-size: cover;
+  width: 100%;
+  height: 10vh;
+  position: absolute;
+  z-index: 4;
+  margin-top: -68px;
+}
+.main {
+  width: 100%;
+  height: 100vh;
+  clear: both;
+  float: none;
+  position: relative;
+  padding-top: 5vh;
+
+  .box {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    height: auto;
+    float: none;
+
+    img {
+      width: 30%;
+      float: left;
+      padding-right: $paddingMenu;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    p {
+      padding-top: 50px;
+    }
+  }
+  #second {
+    width: 100%;
+    height: auto;
+    background-image: image(mainbkg);
+    background-size: cover;
+    position: relative;
+    clear: both;
+    float: none;
+    top: 10vh;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 10vh;
+    padding-top: $paddingMenu;
+  }
+}
+.container {
+  width: 20%;
+  display: inline-block;
+
+  img {
+    width: 55%;
+    display: inline-block;
+    cursor: pointer;
+    &:hover {
+      animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+      width: 65%;
+      transition: ease-in-out 0.2s;
+    }
+
+    @keyframes shake {
+      10%,
+      90% {
+        transform: translate3d(-1px, 0, 0);
+      }
+
+      20%,
+      80% {
+        transform: translate3d(2px, 0, 0);
+      }
+
+      30%,
+      50%,
+      70% {
+        transform: translate3d(-4px, 0, 0);
+      }
+
+      40%,
+      60% {
+        transform: translate3d(4px, 0, 0);
+      }
+    }
+  }
+}
+#three {
+  width: 100%;
+  background: color(links);
+  position: relative;
+
+  height: auto;
+  top: 10vh;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 10vh;
+  padding-top: $paddingMenu;
+
+  .news {
+    width: 20%;
+    display: inline-block;
+    padding: 20px;
+
+    img {
+      width: 80%;
+      text-align: center;
+    }
+
+    p {
+      text-align: left;
+    }
+    i {
+      color: color(font);
+      display: inline;
+    }
+    .ita {
+      color: color(font);
+      font-family: $rs;
+      font-style: italic;
+      display: inline;
+    }
+  }
+}
+.footerContainer {
+  width: 20%;
+  display: inline-block;
+
+  img {
+    width: 55%;
+    display: inline-block;
+  }
+}
+
+footer {
+  margin: 0 auto;
+  text-align: center;
+  background: color(accent);
+  height: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  position: relative;
+  margin-top: 90vh;
+  width: 100%;
+
+  ul {
+    li {
+      display: block;
+      font-family: $rs;
+      color: color(links);
+      line-height: 1.8;
+    }
+  }
+}
+
+.line {
+  display: inline-block;
+  padding-left: $paddingMenu;
+  padding-top: 5px;
+}

@@ -1,17 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="scss/main.css" />
-    <title>Document</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/08fc0a0a1d.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
+    <title>Gylles | Konditori</title>
 </head>
-<body>
-    <h1>Ett litet test.</h1>
-    <h2>Och denna ska vara gul</h2>
-    <p id="ugly"></p>
-    <script src="js/main.js"></script>
 
+<body>
+    <div id="container">
+        <section class="head">
+
+
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <img src="images/halloween.png" alt="Pumpa och spöken">
+                    <div class="text">
+                        <h1>Snart dax för Halloween!</h1>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+
+                    <img src="images/coockies.png" alt="Kakor">
+                    <div class="text">
+                        <h1>Nybakat varje dag!</h1>
+                    </div>
+                </div>
+
+                <div class="mySlides fade small">
+                    <img src="images/chokcake.png" alt="Tårta">
+                    <div class="text">
+                        <h1>Beställ tårta till kalaset!</h1>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+        <nav id="menu">
+            <ul id="social">
+                <li class="links"><a href="https://www.instagram.com/gylleskonditori/"><i
+                            class="fab fa-instagram"></i></a></li>
+                <li class="links"><a href="https://www.facebook.com/GyllesKonditori/"><i
+                            class="fab fa-facebook"></i></a></li>
+            </ul>
+            <ul id="logo">
+                <li id="circle"><a href="index.html"><img src="images/logo.svg" alt="Logotyp"></a></li>
+            </ul>
+            <ul id="mainmenu" class="mainmenu">
+                <li class="links"><a href="#nyheter">Nyheter</a></li>
+                <li class="links"><a href="#">Sortiment</a></li>
+                <li class="links"><a href="#">Om oss</a></li>
+                <li class="links"><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
+        <section class="lace"></section>
+        <section class="main">
+            <section id="first" class="box">
+                <h2>Om oss</h2>
+                <img src="images/about.jpg" alt="Vår bagare" />
+                <p data-aos="fade-left">Gylles Konditori har funnits sedan 1862 och har alltid varit det självklara
+                    valet för smakrikt bröd,
+                    härliga sötsaker & fantastiska bröllopstårtor! <br>
+                    Vi är ett hantverksbageri där allting produceras från grunden av de allra finaste råvaror.
+                    Varmt välkomna till ett bageri med historia och hjärta!</p>
+            </section>
+            <section id="second">
+                <h2 data-aos="fade-down">Våra specialitéer</h2>
+                <div class="container" data-aos="fade-up">
+                    <a href="sortiment#brod"><img src="images/bread.png" alt="Bröd"></a>
+                    <h3>Bröd</h3>
+                </div>
+                <div class="container" data-aos="fade-up">
+                    <a href="sortiment#tartor"> <img src="images/cake.png" alt="Tårta"></a>
+                    <h3>Tårtor</h3>
+                </div>
+                <div class="container" data-aos="fade-up">
+                    <a href="sortiment#bakelser"> <img src="images/muffin.png" alt="Muffins"></a>
+                    <h3>Bakelser</h3>
+                </div>
+                <div class="container" data-aos="fade-up">
+                    <a href="sortiment#kakor"> <img src="images/cookie.png" alt="Kaka"></a>
+                    <h3>Småkakor</h3>
+                </div>
+            </section>
+            <div id="nyheter"></div>
+            <section id="three">
+                <h2>Nyheter</h2>
+                <div data-aos="fade-up" class="news">
+                    <h3>Ebbas dop-tårta</h3>
+                    </i><i class="fas fa-clock"></i>
+                    <p class="ita"> 2019-09-12</p>
+                    <img src="images/cake1.jpg" alt="Dop tårta">
+                    <p>Löksås ipsum erfarenheter gamla åker kan tiden del vid häst dimmhöljd, kunde sista räv
+                        verkligen hwila smultron dock hans och,
+                        sista där denna sig fram regn tid åker göras. Har sällan ordningens dimma
+                        tre samma vad det smultron, rot smultron sjö blev hwila annat på som,
+                        oss om erfarenheter vad göras stora sällan. Kan dunge dimma oss som göras söka björnbär</p>
+                    <button>Läs mer</button>
+                </div>
+                <div data-aos="fade-up" class="news">
+                    <h3>Franska baguetter</h3>
+                    </i><i class="fas fa-clock"></i>
+                    <p class="ita"> 2019-09-09</p>
+                    <img src="images/brodbak.jpg" alt="Baguetter">
+                    <p>Löksås ipsum erfarenheter gamla åker kan tiden del vid häst dimmhöljd, kunde sista räv
+                        verkligen hwila smultron dock hans och,
+                        sista där denna sig fram regn tid åker göras. Har sällan ordningens dimma
+                        tre samma vad det smultron, rot smultron sjö blev hwila annat på som,
+                        oss om erfarenheter vad göras stora sällan. Kan dunge dimma oss som göras söka björnbär</p>
+                    <button>Läs mer</button>
+                </div>
+                <div data-aos="fade-up" class="news">
+                    <h3>Semlawrapps</h3>
+                    </i><i class="fas fa-clock"></i>
+                    <p class="ita"> 2019-09-03</p>
+                    <img src="images/semla.jpg" alt="Semlawrapps">
+                    <p>Löksås ipsum erfarenheter gamla åker kan tiden del vid häst dimmhöljd, kunde sista räv
+                        verkligen hwila smultron dock hans och,
+                        sista där denna sig fram regn tid åker göras. Har sällan ordningens dimma
+                        tre samma vad det smultron, rot smultron sjö blev hwila annat på som,
+                        oss om erfarenheter vad göras stora sällan. Kan dunge dimma oss som göras söka björnbär</p>
+                    <button>Läs mer</button>
+                </div>
+            </section>
+        </section>
+        <footer>
+            <div class="footerContainer">
+                <img src="images/logo.svg" alt="Logo">
+            </div>
+            <div class="footerContainer">
+                <ul>
+                    <li>Gylles Konditori AB</li>
+                    <li>Norra Kungsgatan 22</li>
+                    <li>371 33 Karlskrona</li>
+                </ul>
+            </div>
+            <div class="footerContainer">
+                <ul>
+                    <li><i class="fas fa-phone"></i> 0455-310330</li>
+                    <li><i class="fas fa-envelope"></i> gylles@gylles.se</li>
+                    <li>org. nr 556070-1301</li>
+                </ul>
+            </div>
+            <div class="footerContainer">
+                <ul>
+                    <li>Vardag: 06:00 - 18:00</li>
+                    <ul>
+                        <li>Lördagar: 06:00 - 14:00</li>
+                        <li class="line"><a href="https://www.instagram.com/gylleskonditori/"><i
+                                    class="fab fa-instagram"></i></a></li>
+                        <li class="line"><a href="https://www.facebook.com/GyllesKonditori/"><i
+                                    class="fab fa-facebook"></i></a></li>
+                    </ul>
+            </div>
+        </footer>
+
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
+
 </html>

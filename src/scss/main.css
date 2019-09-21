@@ -8,6 +8,11 @@ Since we have a small project our component file should be manageable.
 It may look like there is a lot to fit in a single file. However, 
 some of these subsets may only have less than 20 lines, 
 some subsets may not even have any code.*/
+body {
+  background-image: url("../images/mainbkg.png");
+  background-size: cover;
+}
+
 h1 {
   color: blue;
 }
