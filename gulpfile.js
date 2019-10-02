@@ -33,6 +33,9 @@ const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 const sourcemaps = require('gulp-sourcemaps');
 
+const sourcemapsB = require("gulp-sourcemaps");
+const babel = require("gulp-babel");
+const concatB = require("gulp-concat");
 // PATHS
 const files = {
     htmlPath: "src/**/*.html",
@@ -58,8 +61,11 @@ function copyHTML() {
 function jsTask() {
     return src(files.jsPath)
         .pipe(browserSync.stream())
-        .pipe(concat('main.js'))
         .pipe(uglify())
+        .pipe(sourcemapsB.init())
+        .pipe(babel())
+        .pipe(concatB("main.js"))
+        .pipe(sourcemapsB.write("."))
         .pipe(dest('pub/js')
 
         );
@@ -91,7 +97,7 @@ return src(files.sassPath)
 function imgsPath() {
     return src(files.imgPath)
         .pipe(browserSync.stream())
-        .pipe(imagemin())
+      //  .pipe(imagemin())
         .pipe(dest('pub/images')
         );
 }
