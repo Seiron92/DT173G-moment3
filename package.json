@@ -23,7 +23,7 @@
   "homepage": "https://github.com/Seiron92/DT173G-moment3#readme",
   "devDependencies": {
     "@babel/core": "^7.6.2",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0-beta.2",
     "gulp-clean-css": "^4.2.0",
